@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Online Shopping - Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Iram's Online Botique</h1>
+        <div class="cart-icon">
+            <span id="cartCount" class="cart-count">0</span>
+            <img src="images/cart.png" alt="Cart" class="cart-icon" width="30" height="30">
+            <div id="cartDropdown" class="dropdown-content">
+                <div id="cartItems">Your cart is empty</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="newarrival.html">New Arrivals</a>
+        <a href="clothing.html">Clothing</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="sale.html">Sale</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+    <div class="container">
+        <h2>Your Shopping Cart</h2>
+        <div id="cartItemsContainer">
+            <p>Your cart is empty</p>
+        </div>
+    </div>
+   <div>
+    <button type="submit" class="styled-button"><a href="checkout.html">Payment</a></button>
+</div>
+    
+    <footer>
+        &copy; 2024 Iram's Online Botique. All rights reserved.
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartItems();
+
+            function updateCartItems() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cartItemsContainer = document.getElementById('cartItemsContainer');
+                cartItemsContainer.innerHTML = '';
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+                } else {
+                    cart.forEach((item, index) => {
+                        let itemDiv = document.createElement('div');
+                        itemDiv.className = 'cart-item';
+                        itemDiv.innerHTML = `
+                            <span>${item.name} - ${item.price}kr</span>
+                            <button class="remove-from-cart" onclick="removeFromCart(${index})">Remove</button>
+                        `;
+                        cartItemsContainer.appendChild(itemDiv);
+                    });
+                }
+            }
+
+            window.removeFromCart = function (index) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                updateCartItems();
+            };
+
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

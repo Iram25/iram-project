@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Iram's Online Botique</h1>
+        <div class="cart-icon">
+            
+            </div>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="clothing.html">Clothing</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="sale.html">Sale</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+    <div class="container">
+        <h1>Checkout</h1>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required>
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" name="expiry-date" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+            <button type="submit" class="styled-button">Submit Payment</button>
+        </form>
+    </div>
+</body>
+</html>

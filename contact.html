@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Online Shopping - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <header>
+      <center>  <h1>Iram's Online Botique</h1></center>
+    </div>
+        <div class="cart-icon">
+            <span id="cartCount" class="cart-count">0</span>
+            <img src="images/cart.png" alt="Cart" class="cart-icon" width="30" height="30">
+            <div id="cartDropdown" class="dropdown-content">
+                <div id="cartItems">Your cart is empty</div>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="clothing.html">Clothing</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="sale.html">Sale</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, please fill out the form below and we will get back to you as soon as possible.</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 Iram's Online Botique. All rights reserved.
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+            updateCartItems();
+        });
+    </script>
+</body>
+</html>
